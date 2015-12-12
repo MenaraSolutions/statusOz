@@ -1,0 +1,1 @@
+{{ trans('errors.404_page_content') }}

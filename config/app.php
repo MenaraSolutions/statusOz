@@ -26,7 +26,19 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('URL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Worker ID
+    |--------------------------------------------------------------------------
+    |
+    | On each machine that is going to do actual tests, don't forget to specify
+    | worker ID in the .env file!
+    |
+    */
+
+    'worker_id' => env('WORKER_ID'),
 
     /*
     |--------------------------------------------------------------------------
