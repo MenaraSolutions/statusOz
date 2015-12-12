@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Contracts\TestableSubjectInterface;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Collections\SubjectCollection;
 
-class Subject extends Model
+class Subject extends Model implements TestableSubjectInterface
 {
     /**
      * @return mixed

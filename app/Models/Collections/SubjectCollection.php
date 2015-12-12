@@ -16,8 +16,6 @@ class SubjectCollection extends Collection implements SubjectsCollectionInterfac
      */
     public function getSubjectsByWorkerId($workerId)
     {
-        // TODO: Implement getSubjectsByWorkerId() method.
-        //return $this->all();
         return $this->filter(function ($item) use ($workerId) {
             return in_array($workerId, $item->settings['workers']);
         });

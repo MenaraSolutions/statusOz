@@ -36,7 +36,7 @@ class TestSpeed extends Command
         foreach($mySubjects as $subject) {
             $this->line('Running test on ' . $subject->title);
 
-            $result = $tester->perform($subject->getTesterParameter());
+            $result = $tester->perform($subject);
 
             if ($result !== false) {
                 $subject->tests()->create([
