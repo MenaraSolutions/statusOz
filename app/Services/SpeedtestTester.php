@@ -23,7 +23,7 @@ class SpeedtestTester implements TesterInterface
      */
     public function perform(TestableSubjectInterface $subject)
     {
-        $process = new Process(storage_path('/app/speedtest-cli --server ' . $subject->getTesterParameter()));
+        $process = new Process(base_path('/resources/speedtest-cli --server ' . $subject->getTesterParameter()));
         $process->setTimeout($this->timeout)->run();
 
         if ($process->isSuccessful() && strpos($process->getOutput(), $this->pattern) !== false) {
