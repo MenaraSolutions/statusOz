@@ -46,7 +46,8 @@ class CreateStatusPage extends Command
         $this->line('Generating status page...');
 
         $viewVariables =[
-            'subjectGroups' => Subject::all()->groupBy('group')
+            'subjectGroups' => Subject::all()->groupBy('group'),
+            'subjects' => Subject::all()
         ];
 
         Storage::disk('local')->put('status.html', view('index', $viewVariables));
