@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Models\Subject;
 use Storage;
 use Config;
+use App;
 
 class CreateStatusPage extends Command
 {
@@ -40,7 +41,7 @@ class CreateStatusPage extends Command
      */
     public function handle()
     {
-        if (Config::get('app.worker_id') != Config::get('app.generator_worker_id')) return;
+        if (Config::get('app.worker_id') != Config::get('app.generator_worker_id') && !App::isLocal()) return;
 
         $this->line('Generating status page...');
 

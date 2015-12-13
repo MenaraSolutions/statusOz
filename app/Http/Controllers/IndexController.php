@@ -16,7 +16,8 @@ class IndexController extends Controller
     public function getIndex()
     {
         $viewVariables =[
-            'subjectGroups' => Subject::all()->groupBy('group')
+            'subjectGroups' => Subject::all()->groupBy('group'),
+            'subjects' => Subject::all()
         ];
 
         $response = new Response(view('index', $viewVariables));

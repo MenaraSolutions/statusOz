@@ -32,12 +32,18 @@ class SubjectCollection extends Collection implements SubjectsCollectionInterfac
         $timeRange = $timeRange ?: Config::get('app.time_range_current');
         $subjectGroup = $this->where('group', $groupId);
         $sum = 0;
+        $count = 0;
 
         foreach ($subjectGroup as $subject) {
-            $sum += $subject->getAverageSpeed($timeRange);
+            $speed = $subject->getAverageSpeed($timeRange);
+
+            if (!empty($speed)) {
+                $sum += $speed;
+                $count++;
+            }
         }
 
-        return count($subjectGroup) ? round($sum / count($subjectGroup), 2) : 0;
+        return $count ? round($sum / $count, 2) : 0;
     }
 
     /**
