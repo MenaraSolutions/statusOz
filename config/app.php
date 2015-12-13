@@ -40,6 +40,27 @@ return [
 
     'worker_id' => env('WORKER_ID'),
 
+    // Worker ID of a machine that will be generating static HTML page
+    'generator_worker_id' => 'esperanza',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Subject group/subject statuses
+    |--------------------------------------------------------------------------
+    */
+
+    'STATUS_OK' => 0,
+    'STATUS_ISSUES' => 1,
+    'STATUS_FAULTY' => 2,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default time ranges
+    |--------------------------------------------------------------------------
+    */
+
+    'time_range_current' => 3600,
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
