@@ -107,7 +107,7 @@ class Subject extends Model implements TestableSubjectInterface
         $timeRange = $timeRange ?: Config::get('app.time_range_current');
         $minimumDate = date('Y-m-d H:i:s', time() - $timeRange);
 
-        return $this->tests()->where('finished_at', '>=' , $minimumDate)->get()->average('result');
+        return round($this->tests()->where('finished_at', '>=' , $minimumDate)->get()->average('result'), 2);
     }
 
     /**
