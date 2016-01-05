@@ -9,19 +9,15 @@ use App\Models\Subject;
 class IndexController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the index page
      *
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
     {
-        $viewVariables =[
+        return new Response(view('index', [
             'subjectGroups' => Subject::all()->groupBy('group'),
             'subjects' => Subject::all()
-        ];
-
-        $response = new Response(view('index', $viewVariables));
-
-        return $response;
+        ]));
     }
 }
